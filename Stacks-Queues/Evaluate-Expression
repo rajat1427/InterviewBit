@@ -1,0 +1,63 @@
+public class Solution {
+	public int evalRPN(ArrayList<String> a) {
+	    
+	    int n=a.size();
+	    Stack<Integer> stack=new Stack<Integer>();
+	     
+	    if(a.size()==1)
+	      {
+	          
+	          return Integer.parseInt(a.get(0));
+	      } 
+	     
+	      
+	     
+	    for(int i=0;i<n;i++)
+	    {   String kk=a.get(i);
+	        char[]aa=a.get(i).toCharArray();
+	      
+	        if(Character.isDigit(aa[0]))
+	          stack.push(Integer.parseInt(kk));
+	        else if(aa.length>1)
+	           stack.push(Integer.parseInt(kk));
+	        else
+	        {
+	           int s1=stack.pop();
+	           int s2=stack.pop();
+	           switch(kk)
+             {  
+               case "+":
+                {
+                  stack.push(s2+s1);
+                  break;
+                }
+                case "-":
+                {
+                  stack.push(s2-s1);
+                  break;
+                }
+                case "*":
+                {
+                  stack.push(s2*s1);
+                  break;
+                }
+               case "/":
+                {
+                  stack.push(s2/s1);
+                  break;
+                }
+               
+
+              }
+	          
+	     
+	       }
+	    
+	    
+	    } 
+	    return stack.pop();
+     
+	}
+
+ }
+
