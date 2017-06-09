@@ -1,0 +1,28 @@
+/**
+ * @input A : Integer array
+ * @input n1 : Integer array's ( A ) length
+ * 
+ * @Output Integer
+ */
+int compare(const void * a, const void * b)
+{
+    return ( *(int*)a - *(int*)b );
+} 
+int findMinXor(int* A, int n1) {
+    int i,j;
+    int res;
+    int min;
+    qsort(A, n1, sizeof(int), compare);
+    min=A[0]^A[1];
+    for(i=0;i<n1-1;i++)
+      {
+         
+                 res=A[i]^A[i+1];
+                  
+                   if(res<min)
+                     min=res;
+            
+      }
+      return min;
+}
+
