@@ -1,0 +1,19 @@
+/**
+ * @input A : Integer
+ * 
+ * @Output Integer
+ */
+int numSetBits(unsigned int A) {
+    
+    int count=0,n;
+    while(A>0)
+    {
+        n=A%2;
+        if(n==1)
+        count++;
+        A=A/2;
+        
+    }
+    return count;
+}
+
