@@ -1,0 +1,24 @@
+public class Solution {
+	// DO NOT MODIFY THE LIST
+	public int singleNumber(final List<Integer> a) {
+	 
+	 int[] count=new int[32];
+	 Arrays.fill(count,0);
+	 int n=a.size();
+	 int result=0;
+	 for (int i=0;i<32;i++)
+	 {
+	     Iterator itr=a.iterator();
+	     while(itr.hasNext())
+	     {
+	         if((((int)(itr.next()) >> i) & 1)!=0)
+	         count[i]++;
+	         
+	     }
+	     result|=(count[i]%3)<<i;
+	 }
+	 return result;
+	
+	}
+}
+
